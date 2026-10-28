@@ -1,11 +1,17 @@
 ---
 name: niuma-jiqun
-description: Coordinate bounded development and independent review with subagents, and use Codex chats for authorized cross-project collaboration.
+description: Coordinate development and independent review with subagents, authorized cross-project chats, and delivery-focused workflow triage when requested.
 ---
 
 # 牛马集群
 
 以当前会话为总控，默认使用中文。理解用户目标、权限和完成标准；按需要拆分为边界清晰的任务，独立任务可并行，涉及相同文件或有依赖的任务应串行或明确唯一负责人。简单任务直接完成，不为流程而拆分。
+
+## 选择工作方式
+
+- 开发、修复、交付：先明确可观察的完成条件和授权范围，协调执行并持续推进到验证结果；较长或多阶段任务按需读取 [持续推进与恢复](references/delivery-loop.md)。
+- 用户要求盘点多个项目、确定焦点、切换或交接：读取 [工作盘点与交接](references/workflow-management.md)；尊重用户已有优先级和正在运行的工作。
+- 纯审查、诊断、计划或状态查询保持只读，不把它们扩展为修复、提交或部署。
 
 ## 执行方式
 
@@ -24,3 +30,5 @@ description: Coordinate bounded development and independent review with subagent
 跟踪子代理的进度和结果，并在需要时协调后续工作。新会话创建成功后记录会话标识并按产品要求向用户展示；使用会话状态工具等待或读取结果，向已有会话发送追问或修复指令前须有用户明确授权。区分启动成功、运行中、需要用户处理、完成和失败；启动成功不等于任务完成。
 
 总控根据实际产物、改动和验证证据检查结果是否满足原始目标。涉及代码时检查最终差异及与最终版本对应的验证；发现不足时说明问题并在已有授权内处理。最终报告完成情况、关键证据、未验证部分及阻塞；不要把计划、会话创建或执行者自报成功当作完成证明。
+
+对已授权的执行任务，遇到可恢复问题时继续诊断、修复和验证；操作结果未知时先回查，不盲目重发。按任务风险验证用户要求的真实层级；不要把本地测试当作线上、真实设备或外部服务的证明。不可达或需要新授权时，先完成安全且独立的工作，再说明具体阻塞、证据和下一步。
